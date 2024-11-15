@@ -1,0 +1,81 @@
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        lang="en"
+        class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet"/>
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Club Management</title>
+</head>
+<body class="flex flex-col h-full bg-white">
+<main class="flex-1">
+    <!-- Navbar -->
+    <header class="mb-8">
+        <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200">
+            <div class="max-w-screen-xl flex items-center justify-center mx-auto p-4">
+                <a href="/clubs" class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap">Club
+                            Management</span>
+                </a>
+                <div class="w-full flex items-center justify-center" id="navbar-default">
+                    <ul class="font-medium flex space-x-8 mt-0 border-0">
+                        <li>
+                            <a href="/clubs"
+                               class="block py-2 px-3 text-gray-900 rounded hover:text-blue-700">Home</a>
+                        </li>
+                        <li>
+                            <a href="/clubs"
+                               class="block py-2 px-3 text-gray-900 rounded hover:text-blue-700">View Clubs</a>
+                        </li>
+                        <li>
+                            <a href="/clubs"
+                               class="block py-2 px-3 text-gray-900 rounded hover:text-blue-700">View Events</a>
+                        </li>
+                        <li>
+                            <a href="/clubs"
+                               class="block py-2 px-3 text-gray-900 rounded hover:text-blue-700">Register</a>
+                        </li>
+                        <li>
+                            <a href="/clubs"
+                               class="block py-2 px-3 text-gray-900 rounded hover:text-blue-700">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content with margin for fixed navbar -->
+    <section layout:fragment="body" class="mt-16"></section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-white rounded-lg shadow m-4">
+    <div class="w-full mx-auto max-w-screen-xl p-4 flex items-center justify-between">
+            <span class="text-sm text-gray-500">Footer <a href="/clubs"
+                                                          class="hover:underline">Club Management</a> Content
+            </span>
+        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500">
+            <li>
+                <a href="#" class="hover:underline me-6">Link 0</a>
+            </li>
+            <li>
+                <a href="#" class="hover:underline me-6">Link 1</a>
+            </li>
+            <li>
+                <a href="#" class="hover:underline me-6">Link 2</a>
+            </li>
+            <li>
+                <a href="#" class="hover:underline me-6">Link 3</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+</body>
+</html>
