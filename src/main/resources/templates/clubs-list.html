@@ -3,40 +3,28 @@
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorate="~{layout}"
 >
-
 <head>
     <title>Clubs List</title>
 </head>
-
 <body>
-
-<!-- Main Content with margin for fixed navbar -->
 <section layout:fragment="body">
-
-    <!-- Portfolio Section -->
     <section class="py-8 px-4 mx-auto max-w-screen-xl">
         <div class="text-center mb-8">
-            <h1
-                    class="text-5xl font-extrabold tracking-tight leading-none text-gray-900">
-                Club List</h1>
+            <h1 class="text-5xl font-extrabold tracking-tight leading-none text-gray-900">Club List</h1>
             <p class="text-lg font-normal text-gray-500 mt-3">View All Active Clubs</p>
         </div>
 
-        <div th:each="club :${clubs}" class="grid gap-8 mb-6 grid-cols-2">
-            <!-- Portfolio Item 1 -->
-            <div class="relative group">
-                <div class="bg-white border border-gray-200 rounded-lg shadow">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div th:each="club :${clubs}" class="relative group">
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                     <a href="#">
-                        <img class="rounded-t-lg"
-                             th:src="${club.photoUrl}"
-                             alt=""/>
+                        <img class="rounded-t-lg" th:src="${club.photoUrl}" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
-                            <h5 th:text="${club.title}"
-                                class="mb-2 text-2xl font-bold tracking-tight text-gray-900"></h5>
+                            <h5 th:text="${club.title}" class="mb-2 text-2xl font-bold tracking-tight text-gray-900"></h5>
                         </a>
-                        <p th:text="${club.content}" class="mb-3 font-normal text-gray-700 "></p>
+                        <p th:text="${club.content}" class="mb-3 font-normal text-gray-700"></p>
                         <a href="#"
                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                             View
@@ -44,18 +32,14 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="bg-gray-50">
         <div class="py-8 px-4 mx-auto max-w-screen-xl">
             <div class="max-w-2xl">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Want to Add Your Club?
-                </h2>
-                <a href="#"
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Want to Add Your Club?</h2>
+                <a th:href="@{/clubs/new}"
                    class="inline-flex items-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300">
                     Add Now
                 </a>
@@ -63,7 +47,5 @@
         </div>
     </section>
 </section>
-
 </body>
-
 </html>
