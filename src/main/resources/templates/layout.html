@@ -24,15 +24,15 @@
                     <ul class="font-medium flex space-x-8 mt-0 border-0">
                         <li>
                             <a href="/clubs"
-                               class="block py-2 px-3 text-gray-900 rounded hover:text-blue-700">Home</a>
-                        </li>
-                        <li>
-                            <a href="/clubs"
                                class="block py-2 px-3 text-gray-900 rounded hover:text-blue-700">View Clubs</a>
                         </li>
                         <li>
                             <a href="/clubs"
                                class="block py-2 px-3 text-gray-900 rounded hover:text-blue-700">View Events</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/clubs/new}"
+                               class="block py-2 px-3 text-gray-900 rounded hover:text-blue-700">Create Club</a>
                         </li>
                         <li>
                             <a href="/clubs"
@@ -49,7 +49,9 @@
     </header>
 
     <!-- Main Content with margin for fixed navbar -->
-    <section layout:fragment="body" class="mt-16"></section>
+    <div class="mt-16">
+        <section layout:fragment="body"></section>
+    </div>
 
 </main>
 
