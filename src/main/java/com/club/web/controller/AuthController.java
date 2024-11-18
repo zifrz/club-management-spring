@@ -21,6 +21,11 @@ public class AuthController {
         this.userService = userService;
     }
 
+    @GetMapping("/login")
+    public  String loginPage(){
+        return "login";
+    }
+
     @GetMapping
     public String getRegisterForm(Model model) {
         model.addAttribute("user", new RegistrationDto());
