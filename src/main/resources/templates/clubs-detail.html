@@ -83,7 +83,7 @@
                                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                                 Start Time
                                             </th>
-                                            <td class="px-6 py-4"  th:text="${event.startTime}"></td>
+                                            <td class="px-6 py-4" th:text="${event.startTime}"></td>
                                         </tr>
                                         <tr class="bg-white border-b">
                                             <th scope="row"
@@ -96,7 +96,14 @@
                                     </table>
                                 </div>
 
-                                <div th:text="${club.title}" class="bg-blue-100 text-blue-800 text-base font-medium me-2 px-4 py-2 mb-4 rounded-lg">Default</div>
+                                <div th:text="${club.title}"
+                                     class="bg-blue-100 text-blue-800 text-base font-medium me-2 px-4 py-2 mb-4 rounded-lg">
+                                    Default
+                                </div>
+                                <a th:href="@{/events/{eventId}(eventId=${event.id})}"
+                                   class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                    View
+                                </a>
                                 <a th:href="@{#}"
                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                                     Edit
