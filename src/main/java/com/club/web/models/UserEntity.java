@@ -1,11 +1,14 @@
-package com.rungroop.web.models;
+package com.club.web.models;
 
+import com.rungroop.web.models.Role;
+
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
