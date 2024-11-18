@@ -1,12 +1,10 @@
 package com.club.web.dto;
 
-import com.club.web.models.Event;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
