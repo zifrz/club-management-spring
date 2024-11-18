@@ -2,7 +2,7 @@
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorate="~{layout}"
->
+        lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Events Detail</title>
@@ -15,8 +15,7 @@
         <!-- Header -->
         <section class="py-8 px-4 mx-auto max-w-screen-xl">
             <div class="text-center mb-8">
-                <h1 text=""
-                    class="text-5xl font-extrabold tracking-tight leading-none text-gray-900">
+                <h1 class="text-5xl font-extrabold tracking-tight leading-none text-gray-900">
                     Event Details
                 </h1>
             </div>
@@ -29,7 +28,7 @@
 
                 <!-- Club Info -->
                 <div class="bg-white shadow-md rounded-lg mb-4">
-                    <a href="#!"><img class="w-full rounded-t-lg"
+                    <a href="#"><img class="w-full rounded-t-lg"
                                       th:src="${event.photoUrl}"
                                       alt="Club Photo"/></a>
                     <div class="p-6">
