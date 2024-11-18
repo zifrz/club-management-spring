@@ -5,8 +5,7 @@ import com.club.web.models.Event;
 
 public class EventMapper {
     public static Event mapToEvent(EventDto eventDto) {
-        return Event
-                .builder()
+        return Event.builder()
                 .id(eventDto.getId())
                 .name(eventDto.getName())
                 .startTime(eventDto.getStartTime())
