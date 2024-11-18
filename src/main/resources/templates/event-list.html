@@ -1,0 +1,67 @@
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Events List</title>
+</head>
+<body>
+<section layout:fragment="body">
+    <section class="py-8 px-4 mx-auto max-w-screen-xl">
+        <div class="text-center mb-8">
+            <h1 class="text-5xl font-extrabold tracking-tight leading-none text-gray-900">Events List</h1>
+            <p class="text-lg font-normal text-gray-500 mt-3">View All Active Events</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div th:each="event :${events}"
+                 class="max-w-sm bg-white border border-gray-200 rounded-lg shadow relative group">
+                <a href="#">
+                    <img class="rounded-t-lg" th:src="${event.photoUrl}" alt=""/>
+                </a>
+                <div class="p-5">
+                    <div class="text-sm text-gray-500 mb-2">
+                        Created On: <span th:text="${event.createdOn.toString()}"></span>
+                    </div>
+                    <a href="#">
+                        <h5 th:text="${event.name}"
+                            class="mb-2 text-2xl truncate font-bold tracking-tight text-gray-900"></h5>
+                    </a>
+
+
+                    <div class="relative overflow-x-auto mb-4">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                            <tbody>
+                            <tr class="bg-white border-b">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    Start Time
+                                </th>
+                                <td class="px-6 py-4" th:text="${event.startTime}"></td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    End Time
+                                </th>
+                                <td class="px-6 py-4" th:text="${event.endTime}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <a th:href="@{#}"
+                       class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                        Edit
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</section>
+</body>
+</html>

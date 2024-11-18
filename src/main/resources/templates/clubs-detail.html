@@ -59,18 +59,45 @@
                     <!-- Grid for Events-->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <!-- Event Card-->
+                        <div th:each="event :${club.events}"
+                             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow relative group">
                             <a href="#">
-                                <img class="rounded-t-lg" th:src="${club.photoUrl}" alt=""/>
+                                <img class="rounded-t-lg" th:src="${event.photoUrl}" alt=""/>
                             </a>
                             <div class="p-5">
-                                <div class="text-sm text-gray-500 mb-2">November 19, 2024</div>
+                                <div class="text-sm text-gray-500 mb-2">
+                                    Created On: <span th:text="${event.createdOn.toString()}"></span>
+                                </div>
                                 <a href="#">
-                                    <h5 th:text="${club.title}"
-                                        class="mb-2 text-2xl font-bold tracking-tight text-gray-900"></h5>
+                                    <h5 th:text="${event.name}"
+                                        class="mb-2 text-2xl truncate font-bold tracking-tight text-gray-900"></h5>
                                 </a>
-                                <p th:text="${club.content}" class="mb-3 font-normal text-gray-700"></p>
-                                <a th:href="@{/clubs/{clubId}/edit(clubId=${club.id})}"
+
+
+                                <div class="relative overflow-x-auto mb-4">
+                                    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                                        <tbody>
+                                        <tr class="bg-white border-b">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                Start Time
+                                            </th>
+                                            <td class="px-6 py-4"  th:text="${event.startTime}"></td>
+                                        </tr>
+                                        <tr class="bg-white border-b">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                End Time
+                                            </th>
+                                            <td class="px-6 py-4" th:text="${event.endTime}"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div th:text="${club.title}" class="bg-blue-100 text-blue-800 text-base font-medium me-2 px-4 py-2 mb-4 rounded-lg">Default</div>
+                                <a th:href="@{#}"
                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                                     Edit
                                 </a>
