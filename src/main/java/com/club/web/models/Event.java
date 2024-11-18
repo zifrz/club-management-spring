@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -20,14 +21,14 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private LocalDate startTime;
-    private LocalDate endTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private String type;
     private String photoUrl;
     @CreationTimestamp
-    private LocalDate createdOn;
+    private LocalDateTime createdOn;
     @UpdateTimestamp
-    private LocalDate updatedOn;
+    private LocalDateTime updatedOn;
 
     @ManyToOne
     @JoinColumn(name = "club_id", nullable = false)
