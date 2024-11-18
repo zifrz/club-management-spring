@@ -1,0 +1,84 @@
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}"
+>
+
+<head>
+    <title>Club Detail</title>
+</head>
+
+<body>
+
+<!-- Main Content with margin for fixed navbar -->
+<section layout:fragment="body">
+    <!-- Justify Children to Center    -->
+    <div class="max-w-screen-lg flex flex-col justify-center items-center mx-auto">
+        <!-- Header -->
+        <section class="py-8 px-4 mx-auto max-w-screen-xl">
+            <div class="text-center mb-8">
+                <h1 th:text="${club.title}"
+                    class="text-5xl font-extrabold tracking-tight leading-none text-gray-900"></h1>
+            </div>
+        </section>
+
+        <!-- Page content-->
+        <div class="container mx-auto px-4">
+            <div class="grid">
+
+
+                <!-- Club Info -->
+                <div class="bg-white shadow-md rounded-lg mb-4">
+                    <a href="#!"><img class="w-full rounded-t-lg"
+                                      th:src="${club.photoUrl}"
+                                      alt="Club Photo"/></a>
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500" th:text="${club.createdOn}"></div>
+                        <h2 class="mt-2 text-2xl font-bold tracking-tight text-gray-900">About this club</h2>
+                        <p class="mt-4  text-gray-700" th:text="${club.content}"></p>
+                        <div class="mt-4 flex flex-row gap-2">
+                            <a th:href="@{/clubs/{clubId}/edit(clubId=${club.id})}"
+                               class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300">
+                                Delete
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <h3 class="mb-4 text-3xl font-bold tracking-tight text-gray-900">Events</h3>
+                    <!-- Grid for Events-->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                            <a href="#">
+                                <img class="rounded-t-lg" th:src="${club.photoUrl}" alt=""/>
+                            </a>
+                            <div class="p-5">
+                                <div class="text-sm text-gray-500 mb-2">November 19, 2024</div>
+                                <a href="#">
+                                    <h5 th:text="${club.title}"
+                                        class="mb-2 text-2xl font-bold tracking-tight text-gray-900"></h5>
+                                </a>
+                                <p th:text="${club.content}" class="mb-3 font-normal text-gray-700"></p>
+                                <a th:href="@{/clubs/{clubId}/edit(clubId=${club.id})}"
+                                   class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                    Edit
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</body>
+
+</html>
