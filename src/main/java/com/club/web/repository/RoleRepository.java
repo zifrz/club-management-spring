@@ -1,6 +1,6 @@
-package com.rungroop.web.repository;
+package com.club.web.repository;
 
-import com.rungroop.web.models.Role;
+import com.club.web.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {
