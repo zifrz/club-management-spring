@@ -60,10 +60,8 @@ public class EventController {
     }
 
     @PostMapping("/events/{eventId}/edit")
-    public String updateEvent(@PathVariable("eventId") Long eventId,
-                              @Valid @ModelAttribute("event") EventDto event,
-                              BindingResult result, Model model) {
-        if(result.hasErrors()) {
+    public String updateEvent(@PathVariable("eventId") Long eventId, @Valid @ModelAttribute("event") EventDto event, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             model.addAttribute("event", event);
             return "events-edit";
         }
@@ -71,6 +69,12 @@ public class EventController {
         event.setId(eventId);
         event.setClub(eventDto.getClub());
         eventService.updateEvent(event);
+        return "redirect:/events";
+    }
+
+    @GetMapping("/events/{eventId}/delete")
+    public String deleteEvent(@PathVariable("eventId") Long eventId) {
+        eventService.deleteEvent(eventId);
         return "redirect:/events";
     }
 }
