@@ -10,10 +10,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/register")
 public class AuthController {
     private final UserService userService;
 
@@ -22,22 +20,22 @@ public class AuthController {
     }
 
     @GetMapping("/login")
-    public  String loginPage(){
+    public String loginPage() {
         return "login";
     }
 
-    @GetMapping
+    @GetMapping("/register")
     public String getRegisterForm(Model model) {
         model.addAttribute("user", new RegistrationDto());
         return "register";
     }
 
-    @GetMapping("/save")
+    @GetMapping("/register/save")
     public String getRegisterSave() {
         return "redirect:/register";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/register/save")
     public String register(@Valid @ModelAttribute("user") RegistrationDto user,
                            BindingResult result, Model model) {
         // Check for existing email
