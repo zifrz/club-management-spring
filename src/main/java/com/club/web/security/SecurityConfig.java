@@ -7,8 +7,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -20,7 +18,12 @@ public class SecurityConfig {
                         .requestMatchers("/login", "/register", "/clubs").permitAll()
                         .anyRequest()
                         .authenticated())
-                .formLogin(withDefaults())
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .loginProcessingUrl("/login")
+                        .failureUrl("/login?error=true")
+                        .defaultSuccessUrl("/clubs", true)
+                        .permitAll())
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .permitAll());
